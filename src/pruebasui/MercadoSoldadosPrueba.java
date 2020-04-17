@@ -2,23 +2,22 @@ package pruebasui;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 
-import ensayos.MercadoSoldadosEnsayo;
 import modelo.Batallon;
 import modelo.Tipo;
+import vista.MercadoSoldadoDialog;
 import vista.info.MercadoSoldadoInfo;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class MercadoSoldadosPrueba extends JFrame {
 
 	private JPanel contentPane;
-	MercadoSoldadoPruebaDialog mercadoSoldadoPruebaDialog;
+	MercadoSoldadoDialog mercadoSoldadoPruebaDialog;
 	/**
 	 * Launch the application.
 	 */
@@ -47,7 +46,7 @@ public class MercadoSoldadosPrueba extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Batallon batallon = new Batallon(1, Tipo.infanteria);
 				MercadoSoldadoInfo info = new MercadoSoldadoInfo(batallon);
-				mercadoSoldadoPruebaDialog=new MercadoSoldadoPruebaDialog(info);
+				mercadoSoldadoPruebaDialog=new MercadoSoldadoDialog(info);
 				mercadoSoldadoPruebaDialog.setVisible(true);
 			}
 		});
