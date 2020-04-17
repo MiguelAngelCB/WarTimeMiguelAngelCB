@@ -10,11 +10,15 @@ import javax.swing.border.EmptyBorder;
 import ensayos.MercadoSoldadosEnsayo;
 import modelo.Batallon;
 import modelo.Tipo;
+import vista.info.MercadoSoldadoInfo;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MercadoSoldadosPrueba extends JFrame {
 
 	private JPanel contentPane;
-
+	MercadoSoldadoPruebaDialog mercadoSoldadoPruebaDialog;
 	/**
 	 * Launch the application.
 	 */
@@ -37,10 +41,18 @@ public class MercadoSoldadosPrueba extends JFrame {
 	public MercadoSoldadosPrueba() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 678, 479);
-		contentPane = new MercadoSoldadosEnsayo(new Batallon(1, Tipo.infanteria));
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
-		setContentPane(contentPane);
+		
+		JButton btnDialogo = new JButton("dialogo");
+		btnDialogo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Batallon batallon = new Batallon(1, Tipo.infanteria);
+				MercadoSoldadoInfo info = new MercadoSoldadoInfo(batallon);
+				mercadoSoldadoPruebaDialog=new MercadoSoldadoPruebaDialog(info);
+				mercadoSoldadoPruebaDialog.setVisible(true);
+			}
+		});
+		getContentPane().add(btnDialogo, BorderLayout.CENTER);
+		
 	}
 
 }

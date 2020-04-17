@@ -1,19 +1,20 @@
 package ensayos;
 
-import javax.swing.JPanel;
-import javax.swing.JLabel;
+import java.awt.event.FocusAdapter;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 import javax.swing.BoxLayout;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import modelo.Especialidad;
-import java.beans.PropertyChangeListener;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.beans.PropertyChangeEvent;
+import vista.info.EspecialidadSoldadoInfo;
 
 public class EspecialidadSoldadosEnsayo extends JPanel {
 	private JLabel lblEspecialidad;
 	private JTextField txtCantidad;
+	private FocusAdapter focusAdapter;
 
 	public JLabel getLblEspecialidad() {
 		return lblEspecialidad;
@@ -26,7 +27,8 @@ public class EspecialidadSoldadosEnsayo extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public EspecialidadSoldadosEnsayo(Especialidad especialidad) {
+	public EspecialidadSoldadosEnsayo(EspecialidadSoldadoInfo especialidad,FocusAdapter focusAdapter) {
+		this.focusAdapter=focusAdapter;
 		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 		
 		JLabel lblNewLabel = new JLabel("Especialidad     :");
@@ -39,13 +41,22 @@ public class EspecialidadSoldadosEnsayo extends JPanel {
 		add(lblCantidadc);
 		
 		txtCantidad = new JTextField("0");
-		txtCantidad.addActionListener(new ActionListener() {
-			
+		//pasandole el listener del container
+		txtCantidad.addFocusListener(this.focusAdapter);
+		//cuidado con poner dos listener
+		txtCantidad.addMouseListener(new MouseAdapter() {
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("donde action listener");
+			public void mouseClicked(MouseEvent e) {
+				txtCantidad.setText("");
 			}
 		});
+//		txtCantidad.addActionListener(new ActionListener() {
+//			
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				System.out.println("donde action listener");
+//			}
+//		});
 		add(txtCantidad);
 		txtCantidad.setColumns(10);
 
