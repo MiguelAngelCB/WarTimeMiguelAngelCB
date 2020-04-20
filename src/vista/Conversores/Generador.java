@@ -4,10 +4,12 @@ import java.awt.event.FocusAdapter;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import modelo.Batallon;
 import modelo.Especialidad;
 import modelo.Tipo;
 import vista.EspecialidadSoldado;
 import vista.info.EspecialidadSoldadoInfo;
+import vista.info.MercadoSoldadoInfo;
 
 public class Generador {
 
@@ -21,5 +23,8 @@ public class Generador {
 		return panelesEspecialidadSoldadosEnsayos;
 	}
 
+	public static MercadoSoldadoInfo getMercadoSoldadoInfo(Batallon batallon) {
+		return new MercadoSoldadoInfo(batallon);
+	}
 
 }

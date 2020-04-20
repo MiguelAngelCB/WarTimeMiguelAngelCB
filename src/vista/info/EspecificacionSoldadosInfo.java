@@ -1,17 +1,19 @@
 package vista.info;
 
+import modelo.Especialidad;
+
 public class EspecificacionSoldadosInfo {
-	private String especialidad;
+	private Especialidad especialidad;
 	private int cantidad;
 
 	//TODO cambiar String por Especialidad
 	public EspecificacionSoldadosInfo(String especialidad, int cantidad) {
 		super();
-		this.especialidad = especialidad;
+		this.especialidad = Especialidad.getTipoPorNombre(especialidad);
 		this.cantidad = cantidad;
 	}
 
-	public String getEspecialidad() {
+	public Especialidad getEspecialidad() {
 		return especialidad;
 	}
 

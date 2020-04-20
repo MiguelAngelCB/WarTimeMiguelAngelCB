@@ -35,4 +35,22 @@ public class Batallon {
 		return tipo;
 	}
 
+
+	public Integer getCantidadSoldados() {
+		return soldados.size();
+	}
+
+
+	public boolean alistarSoldado(Soldado soldado) {
+//		//programacion por contrato
+		assert soldado.getEspecialidad().getTipo().equals(tipo):"epecialidad no compatible";
+		return soldados.add(soldado);
+		//programacion defensiva
+//		boolean response = false;
+//		if (soldado.getEspecialidad().getTipo().equals(tipo)) {
+//			response = soldados.add(soldado);
+//		}
+//		return response;
+	}
+
 }

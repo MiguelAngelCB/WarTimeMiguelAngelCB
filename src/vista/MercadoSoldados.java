@@ -5,6 +5,7 @@ import java.awt.event.FocusEvent;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+import javax.sound.midi.MidiDevice.Info;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -103,5 +104,9 @@ public class MercadoSoldados extends JPanel {
 			Integer.valueOf(especialidad.getTxtCantidad().getText().toString())));
 		}
 		return response;
+	}
+
+	public boolean compruebaMax() {
+		return sumaSoldados()==Integer.valueOf(lblMaxSoldados.getText());
 	}
 }

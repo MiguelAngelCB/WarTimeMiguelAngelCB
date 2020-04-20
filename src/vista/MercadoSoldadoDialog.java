@@ -19,6 +19,7 @@ public class MercadoSoldadoDialog extends JDialog {
 	private  JPanel contentPanel =new JPanel();
 	private MercadoSoldados mercadoSoldados;
 	LinkedList<EspecificacionSoldadosInfo> listaEjercito;
+	private JButton btnOk;
 	public MercadoSoldadoDialog(MercadoSoldadoInfo info) {
 		super();
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -32,19 +33,22 @@ public class MercadoSoldadoDialog extends JDialog {
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
-				JButton okButton = new JButton("OK");
-				buttonPane.add(okButton);
-				okButton.addActionListener(new ActionListener() {
-					
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						listaEjercito = mercadoSoldados.getListaEjercito();
-						dispose();
-					}
-				});
+				// a partir de este momento neceistamos acceder a la informacion
+				// del modelo, es decir, tablero, juego, etc. 
+				btnOk = new JButton("OK");
+				buttonPane.add(btnOk);
+				
 			}
 			
 		}
+	}
+
+	public JButton getBtnOk() {
+		return btnOk;
+	}
+
+	public boolean compruebaMax() {
+		return mercadoSoldados.compruebaMax();
 	}
 
 }
