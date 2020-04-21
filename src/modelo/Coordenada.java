@@ -1,9 +1,9 @@
 package modelo;
 
-public class Coordinate {
+public class Coordenada {
 	private int x, y;
 
-	public Coordinate(int x, int y) {
+	public Coordenada(int x, int y) {
 		super();
 		this.x = x;
 		this.y = y;
@@ -30,7 +30,7 @@ public class Coordinate {
 		assert obj != null;
 		boolean response = super.equals(obj);
 		if (!response) {
-			Coordinate parametro = (Coordinate) obj;
+			Coordenada parametro = (Coordenada) obj;
 			response = this.getX() == parametro.getX() && this.getY() == parametro.getY();
 		}
 		return response;
