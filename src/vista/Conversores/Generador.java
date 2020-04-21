@@ -5,9 +5,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import modelo.Batallon;
+import modelo.Ejercito;
 import modelo.Especialidad;
 import modelo.Tipo;
 import vista.EspecialidadSoldado;
+import vista.info.EjercitoInfo;
 import vista.info.EspecialidadSoldadoInfo;
 import vista.info.MercadoSoldadoInfo;
 
@@ -27,4 +29,8 @@ public class Generador {
 		return new MercadoSoldadoInfo(batallon);
 	}
 
+	public static EjercitoInfo getEjercitoInfo(Ejercito ejercito) {
+		return new EjercitoInfo(ejercito.getId(), ejercito.getIdBatallonActual(), ejercito.getTipoBatallon(),
+				ejercito.getInfanteria(), ejercito.getCaballeria(), ejercito.getArqueria());
+	}
 }

@@ -16,9 +16,8 @@ class PobladorControllerTest {
 
 	@Test
 	void testPoblarBatallon() {
-		PobladorController pobladorController=new PobladorController();
 		Batallon batallon = new Batallon(1, Tipo.arqueria);
-		pobladorController.setBatallon(batallon);
+		PobladorController pobladorController=new PobladorController(batallon);
 		Especialidad especialidades[]= {Especialidad.arco,Especialidad.ballesta};
 		int mitad=5;
 		ArrayList<EspecificacionSoldadosInfo> lista=new ArrayList<EspecificacionSoldadosInfo>();
@@ -31,9 +30,8 @@ class PobladorControllerTest {
 	}
 	@Test
 	void testPoblarBatallonDos() {
-		PobladorController pobladorController=new PobladorController();
 		Batallon batallon = new Batallon(1, Tipo.arqueria);
-		pobladorController.setBatallon(batallon);
+		PobladorController pobladorController=new PobladorController(batallon);
 		Especialidad especialidades[]= {Especialidad.arco,Especialidad.ballesta};
 		int fraccion=4;
 		ArrayList<EspecificacionSoldadosInfo> lista=new ArrayList<EspecificacionSoldadosInfo>();

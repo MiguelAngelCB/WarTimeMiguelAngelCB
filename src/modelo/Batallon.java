@@ -3,7 +3,7 @@ package modelo;
 import java.awt.Color;
 import java.util.LinkedList;
 
-public class Batallon {
+public class Batallon implements Casilla{
 	private int id;
 	private final int maximoSoldados = 10;
 	private Tipo tipo;

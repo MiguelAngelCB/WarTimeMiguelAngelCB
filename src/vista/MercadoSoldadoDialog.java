@@ -19,6 +19,10 @@ public class MercadoSoldadoDialog extends JDialog {
 	private  JPanel contentPanel =new JPanel();
 	private MercadoSoldados mercadoSoldados;
 	LinkedList<EspecificacionSoldadosInfo> listaEjercito;
+	public LinkedList<EspecificacionSoldadosInfo> getListaEjercito() {
+		return mercadoSoldados.getListaEjercito();
+	}
+
 	private JButton btnOk;
 	public MercadoSoldadoDialog(MercadoSoldadoInfo info) {
 		super();
@@ -50,5 +54,7 @@ public class MercadoSoldadoDialog extends JDialog {
 	public boolean compruebaMax() {
 		return mercadoSoldados.compruebaMax();
 	}
+
+	
 
 }

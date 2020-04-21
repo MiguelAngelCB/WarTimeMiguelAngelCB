@@ -34,7 +34,7 @@ public class EspecialidadSoldado extends JPanel{
 		JLabel lblNewLabel = new JLabel("Especialidad     :");
 		add(lblNewLabel);
 		
-		lblEspecialidad = new JLabel(String.valueOf(especialidad));
+		lblEspecialidad = new JLabel(especialidad.toString());
 		add(lblEspecialidad);
 		
 		JLabel lblCantidadc = new JLabel("               Cantidad         :");

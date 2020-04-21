@@ -12,13 +12,20 @@ public class PobladorController {
 	//De donde sale ese batallon???
 	private Batallon batallon;
 
+	
+
 	public Batallon getBatallon() {
 		return batallon;
 	}
 
-	public void setBatallon(Batallon batallon) {
+
+
+	public PobladorController(Batallon batallon) {
+		super();
 		this.batallon = batallon;
 	}
+
+
 
 	// Desde el mismo momento en que toco el modelo tengo que hacer pruebas
 	public void poblarBatallon(List<EspecificacionSoldadosInfo> especificacion) {
