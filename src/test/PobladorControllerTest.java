@@ -28,6 +28,8 @@ class PobladorControllerTest {
 		int max=10;
 		assertEquals(max, pobladorController.getBatallon().getCantidadSoldados());
 	}
+	
+	// si fuera programacion defensiva
 	@Test
 	void testPoblarBatallonDos() {
 		Batallon batallon = new Batallon(1, Tipo.arqueria);

@@ -54,6 +54,7 @@ public class BodeArmadaPrueba extends JFrame {
 		contentPane.add(comp, BorderLayout.WEST);
 		ejercito = new Ejercito(0);
 		comp.cargarEjercito(Generador.getEjercitoInfo(ejercito));
+		//De aqui hay cosas que tendran que cambiar en la version definitiva
 		getBtnPoblar(comp).addActionListener(new ActionListener() {
 
 			@Override
