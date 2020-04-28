@@ -17,7 +17,7 @@ public class TableroUI extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public TableroUI(int ancho, int alto, MouseAdapter mouseAdapter,TableroUIInfo tableroUIInfo) {
+	public TableroUI(int ancho, int alto, MouseAdapter mouseAdapter, TableroUIInfo tableroUIInfo) {
 		super();
 		this.mouseAdapter = mouseAdapter;
 		fichas = new JPanel[ancho][alto];
@@ -33,9 +33,25 @@ public class TableroUI extends JPanel {
 			for (int j = 0; j < fichas[i].length; j++) {
 				JPanel casilla = fichas[i][j];
 				casilla.addMouseListener(mouseAdapter);
+				String nombreCasilla = getNombreCasilla(i, j);
+				casilla.setName(nombreCasilla);
 				add(casilla);
 			}
 		}
 		revalidate();
 	}
+
+	private String getNombreCasilla(int fila, int columna) {
+		String[] coordenada = { Integer.toString(fila), Integer.toString(columna) };
+		int i = 0;
+		do {
+			if (Integer.valueOf(coordenada[i]) < 10) {
+				coordenada[i] = "0" + coordenada[i];
+			}
+			i++;
+		} while (i < coordenada.length);
+		String nombreCasilla = coordenada[0] + coordenada[1];
+		return nombreCasilla;
+	}
+
 }

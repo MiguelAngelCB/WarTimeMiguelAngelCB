@@ -12,11 +12,11 @@ public class FichaInfo {
 	private int stamina;
 	private int units;
 	private boolean heroe;
-	private Color colorArmy;
-	private Color colorEnemy;
-	
+	private Color colorPrimario;
+	private Color colorSecundario;
+
 	public FichaInfo(String icon, int army, int battalion, int experience, int attack, int defence, int stamina,
-			int units, boolean heroe,Color colorArmy) {
+			int units, boolean heroe, Color colorPrimario, Color colorSecundario) {
 		super();
 		this.icon = icon;
 		this.army = army;
@@ -27,11 +27,10 @@ public class FichaInfo {
 		this.stamina = stamina;
 		this.units = units;
 		this.heroe = heroe;
-		this.colorArmy = colorArmy;
-		this.colorEnemy=colorArmy;
+		this.colorPrimario = colorPrimario;
+		this.colorSecundario = colorSecundario;
 	}
 
-	
 	public String getIcon() {
 		return icon;
 	}
@@ -65,26 +64,27 @@ public class FichaInfo {
 	}
 
 	public char getHeroe() {
-		char response=' ';
-		if(heroe) {
-			response='H';
+		char response = ' ';
+		if (heroe) {
+			response = 'H';
 		}
 		return response;
 	}
 
-
 	public Color getColorArmy() {
-		return colorArmy;
+		return colorPrimario;
 	}
 
 	public Color getColorEnemy() {
-		return colorEnemy;
+		return colorSecundario;
 	}
 
-
-	public void setColorEnemy(Color colorEnemy) {
-		this.colorEnemy = colorEnemy;
+	public void setColorPrimario(Color colorPrimario) {
+		this.colorPrimario = colorPrimario;
 	}
-	
-	
+
+	public void setColorSecundario(Color colorSecundario) {
+		this.colorSecundario = colorSecundario;
+	}
+
 }
