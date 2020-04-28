@@ -1,7 +1,5 @@
 package modelo;
 
-import vista.info.FichaInfo;
-
 public class Tablero {
 	private int ancho, alto;
 	// Como tambien puede ser un castillo, habrá que remodelar esto
@@ -14,14 +12,32 @@ public class Tablero {
 		casillas = new Matriz<Coordenada, Casilla>(ancho, alto);
 	}
 
+	public boolean comprobarPosicionLibre(Coordenada coordenada) {
+		return getCasilla(coordenada) == null;
+	}
+
 	public Casilla getCasilla(Coordenada coordenada) {
 		return casillas.getElement(coordenada);
 	}
 
-	public void insertar(Batallon batallon,Coordenada coordenada) {
+	public void insertar(Batallon batallon, Coordenada coordenada) {
 		casillas.insertElement(coordenada, batallon);
 	}
-	public void insertar(Casilla casilla,Coordenada coordenada) {
+
+	public void insertar(Casilla casilla, Coordenada coordenada) {
 		casillas.insertElement(coordenada, casilla);
 	}
+
+	public int getAncho() {
+		return ancho;
+	}
+
+	public int getAlto() {
+		return alto;
+	}
+
+	public Matriz<Coordenada, Casilla> getCasillas() {
+		return casillas;
+	}
+
 }
