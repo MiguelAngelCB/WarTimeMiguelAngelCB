@@ -7,6 +7,7 @@ import java.util.Arrays;
 
 import javax.swing.JPanel;
 
+import control.Juego;
 import modelo.Batallon;
 import modelo.Casilla;
 import modelo.Coordenada;
@@ -21,6 +22,7 @@ import vista.info.EjercitoInfo;
 import vista.info.EspecialidadSoldadoInfo;
 import vista.info.FichaInfo;
 import vista.info.MercadoSoldadoInfo;
+import vista.info.TableroUIInfo;
 
 public class Generador {
 
@@ -43,7 +45,7 @@ public class Generador {
 				ejercito.getInfanteria(), ejercito.getCaballeria(), ejercito.getArqueria());
 	}
 
-	private static FichaInfo getFichaInfo(Tablero tablero, Coordenada coordenada) {
+	public static FichaInfo getFichaInfo(Tablero tablero, Coordenada coordenada) {
 		Casilla casilla = tablero.getCasilla(coordenada);
 		FichaInfo fichaInfo=null;
 		if(casilla!=null) {
@@ -54,11 +56,8 @@ public class Generador {
 		}
 		return fichaInfo;
 	}
-	public static JPanel getFicha(Tablero tablero, Coordenada coordenada) {
-		FichaInfo fichaInfo=getFichaInfo(tablero, coordenada);
-		if(fichaInfo==null) {
-			return new FichaBlanca();
-		}
-		return new Ficha(fichaInfo);
+	
+	public static TableroUIInfo getTableroUIInfo(Juego juego) {
+		return new TableroUIInfo(juego.getTablero());
 	}
 }

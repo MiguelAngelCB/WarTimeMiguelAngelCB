@@ -6,6 +6,10 @@ import java.awt.event.MouseAdapter;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import modelo.Coordenada;
+import modelo.Tablero;
+import utiles.Utiles;
+import vista.info.FichaInfo;
 import vista.info.TableroUIInfo;
 
 public class TableroUI extends JPanel {
@@ -17,25 +21,35 @@ public class TableroUI extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public TableroUI(int ancho, int alto, MouseAdapter mouseAdapter,TableroUIInfo tableroUIInfo) {
+	public TableroUI(int ancho, int alto) {
 		super();
-		this.mouseAdapter = mouseAdapter;
 		fichas = new JPanel[ancho][alto];
 		setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLayout(new GridLayout(ancho, alto, 0, 0));
-		actualizarTablero(tableroUIInfo);
+	}
+
+	public void setMouseAdapter(MouseAdapter mouseAdapter) {
+		this.mouseAdapter = mouseAdapter;	
 	}
 
 	public void actualizarTablero(TableroUIInfo tableroUIInfo) {
 		removeAll();
-		tableroUIInfo.getFichas(fichas);
+		FichaInfo[][] fichasInfo = tableroUIInfo.getFichasInfo();
 		for (int i = 0; i < fichas.length; i++) {
 			for (int j = 0; j < fichas[i].length; j++) {
-				JPanel casilla = fichas[i][j];
-				casilla.addMouseListener(mouseAdapter);
-				add(casilla);
+				fichas[i][j] = getFicha(fichasInfo[i][j]);
+				fichas[i][j].addMouseListener(mouseAdapter);
+				fichas[i][j].setName(Utiles.nombrar(i, j));
+				add(fichas[i][j]);
 			}
 		}
 		revalidate();
+	}
+	
+	public  JPanel getFicha(FichaInfo fichaInfo) {
+		if(fichaInfo==null) {
+			return new FichaBlanca();
+		}
+		return new Ficha(fichaInfo);
 	}
 }

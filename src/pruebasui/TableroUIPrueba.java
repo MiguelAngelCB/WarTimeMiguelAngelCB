@@ -14,6 +14,7 @@ import modelo.Batallon;
 import modelo.Coordenada;
 import modelo.Tablero;
 import modelo.Tipo;
+import vista.BordeArmada;
 import vista.TableroUI;
 import vista.info.TableroUIInfo;
 
@@ -28,7 +29,7 @@ public class TableroUIPrueba extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TableroUIPrueba frame = new TableroUIPrueba();
+					ParaUIPruebaTablero frame = new ParaUIPruebaTablero();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -47,23 +48,18 @@ public class TableroUIPrueba extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		MouseAdapter mouseAdapter = new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				super.mouseClicked(e);
-				JPanel panel = (JPanel) e.getSource();
-				panel.setBackground(Color.YELLOW);
-				// Por esta razon el mouseAdapter tiene que ser una propiedad del tableroui
-//				tableroUI.actualizarTablero(mouseAdapter);
-//				tableroUI.actualizarTablero();
-			}
-		};
+		
 		Tablero tablero=new Tablero(6, 12);
 		tablero.insertar(new Batallon(4, Tipo.infanteria), new Coordenada(4, 4));
 		TableroUIInfo tableroUIInfo=new TableroUIInfo(tablero);
-		tableroUI = new TableroUI(6, 12, mouseAdapter,tableroUIInfo);
+		tableroUI = new TableroUI(6, 12);
 		contentPane.add(tableroUI, BorderLayout.CENTER);
 		setExtendedState(getExtendedState() | JFrame.MAXIMIZED_BOTH);
+		contentPane.add(new BordeArmada(),BorderLayout.WEST);
+	}
+
+	public TableroUI getTableroUI() {
+		return tableroUI;
 	}
 
 }
