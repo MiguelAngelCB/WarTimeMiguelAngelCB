@@ -12,11 +12,6 @@ public class Juego {
 	private int ancho, alto;
 	private LinkedList<Ejercito> ejercitos = new LinkedList<Ejercito>();
 	private int idEjercitoActual = 0;
-	private boolean localizarEstado = true;
-
-	public boolean isLocalizarEstado() {
-		return localizarEstado;
-	}
 
 	public Juego(int ancho, int alto) {
 		super();
@@ -32,26 +27,33 @@ public class Juego {
 	}
 
 	public boolean localizarBatallon(Coordenada coordenada) {
-		boolean insertar = localizarEstado;
-		if (insertar) {
-			Ejercito ejercito = ejercitos.get(idEjercitoActual);
-			Batallon batallonActual = ejercito.getBatallonActual();
+		boolean insertar = false;
+		setIdEjercitoActual(coordenada);
+		Ejercito ejercito = getEjercitoActual();
+		if (!ejercito.comprobarUltimoBatallon()) {
+			Batallon batallonActual = getBatallonActual();
 			insertar = tablero.insertar(batallonActual, coordenada);
 			if (insertar) {
-				if (!ejercito.setSiguienteBatallon()) {
-					setSiguienteEjercito();
-				}
+				ejercito.setSiguienteBatallon();
 			}
 		}
 		return insertar;
 	}
 
-	private void setSiguienteEjercito() {
-		if (++idEjercitoActual == ejercitos.size()) {
-			idEjercitoActual = 0;
-			localizarEstado = false;
+	public Batallon getBatallonActual() {
+		return getEjercitoActual().getBatallonActual();
+	}
+
+	public Ejercito getEjercitoActual() {
+		return ejercitos.get(idEjercitoActual);
+	}
+
+	public void setIdEjercitoActual(Coordenada coordenada) {
+		if (tablero.mitadTablero(coordenada)) {
+			this.idEjercitoActual = ejercitos.size() - 1;
+		} else {
+			this.idEjercitoActual = 0;
 		}
-		;
 	}
 
 }

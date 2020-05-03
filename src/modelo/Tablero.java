@@ -33,7 +33,7 @@ public class Tablero {
 		return response;
 	}
 
-	public static boolean mitadTablero(Tablero tablero, Coordenada coordenada) {
-		return (coordenada.getY() > (tablero.getAncho() / 2) - 1);
+	public boolean mitadTablero(Coordenada coordenada) {
+		return (coordenada.getY() > (getAncho() / 2) - 1);
 	}
 }

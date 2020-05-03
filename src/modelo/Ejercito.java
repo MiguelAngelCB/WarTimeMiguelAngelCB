@@ -11,39 +11,37 @@ public class Ejercito {
 	// Aunque tiene caracteristicas de SET (los batallones no se repiten)
 	// me conviene una list porque puedo hacer get(i)
 	LinkedList<Batallon> batallones = new LinkedList<Batallon>();
-	
-	
+
 	public Ejercito(int id) {
 		super();
 		this.id = id;
 		crearEjercito();
 	}
 
-	public boolean setSiguienteBatallon() {
-		boolean response=false;
-		if(++idBatallonActual<batallones.size()) {
-			response=true;
-		}else{
-			idBatallonActual=0;
-		};
-		return response;
+	public void setSiguienteBatallon() {
+		if (this.idBatallonActual < batallones.size()) {
+			this.idBatallonActual++;
+		}
+	}
+
+	public boolean comprobarUltimoBatallon() {
+		return this.idBatallonActual == batallones.size();
 	}
 
 	private void crearEjercito() {
-		int j=0;
+		int j = 0;
 		for (int i = 0; i < infanteria; i++) {
-			batallones.add(new Batallon(j++,Tipo.infanteria));
+			batallones.add(new Batallon(j++, Tipo.infanteria));
 		}
 		for (int i = 0; i < caballeria; i++) {
-			batallones.add(new Batallon(j++,Tipo.caballeria));
+			batallones.add(new Batallon(j++, Tipo.caballeria));
 
 		}
 		for (int i = 0; i < arqueria; i++) {
-			batallones.add(new Batallon(j++,Tipo.arqueria));
+			batallones.add(new Batallon(j++, Tipo.arqueria));
 
 		}
 	}
-
 
 	public int getId() {
 		return id;
@@ -68,7 +66,6 @@ public class Ejercito {
 	public Tipo getTipoBatallon() {
 		return getBatallonActual().getTipo();
 	}
-
 
 	public Batallon getBatallonActual() {
 		return batallones.get(idBatallonActual);
