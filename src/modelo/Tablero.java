@@ -1,7 +1,5 @@
 package modelo;
 
-import vista.info.FichaInfo;
-
 public class Tablero {
 	private int ancho, alto;
 	// Como tambien puede ser un castillo, habrá que remodelar esto
@@ -30,8 +28,12 @@ public class Tablero {
 		boolean response = false;
 		if (!casillas.contieneElemento(casilla) && !casillas.contieneClave(coordenada)) {
 			casillas.insertElement(coordenada, casilla);
-			response=true;
+			response = true;
 		}
 		return response;
+	}
+
+	public static boolean mitadTablero(Tablero tablero, Coordenada coordenada) {
+		return (coordenada.getY() > (tablero.getAncho() / 2) - 1);
 	}
 }
