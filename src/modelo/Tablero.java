@@ -11,7 +11,7 @@ public class Tablero {
 		super();
 		this.ancho = ancho;
 		this.alto = alto;
-		casillas = new Matriz<Coordenada, Casilla>(ancho, alto);
+		casillas = new Matriz<Coordenada, Casilla>(alto, ancho);
 	}
 
 	public int getAncho() {
@@ -30,8 +30,15 @@ public class Tablero {
 		boolean response = false;
 		if (!casillas.contieneElemento(casilla) && !casillas.contieneClave(coordenada)) {
 			casillas.insertElement(coordenada, casilla);
-			response=true;
+			response = true;
 		}
 		return response;
+	}
+
+	public boolean isEnSuMitad(Ejercito ejercito, Coordenada coordenada) {
+		int y = coordenada.getY();
+		int mitad = ancho / 2;
+		int positionRelativa = y - (mitad * ejercito.getId());
+		return positionRelativa >= 0 && positionRelativa < mitad + ejercito.getId();
 	}
 }

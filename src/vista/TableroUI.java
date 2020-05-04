@@ -23,9 +23,9 @@ public class TableroUI extends JPanel {
 	 */
 	public TableroUI(int ancho, int alto) {
 		super();
-		fichas = new JPanel[ancho][alto];
+		fichas = new JPanel[alto][ancho];
 		setBorder(new EmptyBorder(5, 5, 5, 5));
-		setLayout(new GridLayout(ancho, alto, 0, 0));
+		setLayout(new GridLayout(alto, ancho, 0, 0));
 	}
 
 	public void setMouseAdapter(MouseAdapter mouseAdapter) {

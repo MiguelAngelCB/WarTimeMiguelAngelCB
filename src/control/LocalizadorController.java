@@ -1,6 +1,7 @@
 package control;
 
 import modelo.Coordenada;
+import modelo.Error;
 
 public class LocalizadorController {
 
@@ -17,6 +18,10 @@ public class LocalizadorController {
 
 	public Juego getJuego() {
 		return juego;
+	}
+
+	public String getError() {
+		return juego.getErrorActual().getMensaje();
 	}
 	
 	

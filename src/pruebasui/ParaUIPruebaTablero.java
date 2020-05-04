@@ -11,6 +11,7 @@ import control.Juego;
 import control.LocalizadorController;
 import modelo.Coordenada;
 import utiles.Utiles;
+import vista.Advertencia;
 import vista.Conversores.Generador;
 
 public class ParaUIPruebaTablero extends TableroUIPrueba {
@@ -24,7 +25,7 @@ public class ParaUIPruebaTablero extends TableroUIPrueba {
 			panel.setBackground(Color.YELLOW);
 			Coordenada coordenada = Utiles.getCoordenada(panel.getName());
 			if(!localizadorController.localizar(coordenada)) {
-				System.out.println("algo va mal");
+				new Advertencia(localizadorController.getError());
 			}
 			getTableroUI().actualizarTablero(Generador.getTableroUIInfo(localizadorController.getJuego()));
 		}

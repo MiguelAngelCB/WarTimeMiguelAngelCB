@@ -49,10 +49,10 @@ public class TableroUIPrueba extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		Tablero tablero=new Tablero(6, 12);
+		Tablero tablero=new Tablero(12, 6);
 		tablero.insertar(new Batallon(4, Tipo.infanteria), new Coordenada(4, 4));
 		TableroUIInfo tableroUIInfo=new TableroUIInfo(tablero);
-		tableroUI = new TableroUI(6, 12);
+		tableroUI = new TableroUI(12, 6);
 		contentPane.add(tableroUI, BorderLayout.CENTER);
 		setExtendedState(getExtendedState() | JFrame.MAXIMIZED_BOTH);
 		contentPane.add(new BordeArmada(),BorderLayout.WEST);

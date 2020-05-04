@@ -25,9 +25,6 @@ public class PobladorController {
 		this.batallon = batallon;
 	}
 
-
-
-	// Desde el mismo momento en que toco el modelo tengo que hacer pruebas
 	public void poblarBatallon(List<EspecificacionSoldadosInfo> especificacion) {
 		assert especificacion != null;
 		for (EspecificacionSoldadosInfo especificacionSoldadosInfo : especificacion) {
