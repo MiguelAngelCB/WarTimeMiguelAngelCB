@@ -2,6 +2,7 @@ package control;
 
 import modelo.Batallon;
 import modelo.Coordenada;
+import modelo.Ejercito;
 
 public class LocalizadorController {
 
@@ -18,6 +19,10 @@ public class LocalizadorController {
 
 	public Batallon getBatallonActual() {
 		return juego.getBatallonActual();
+	}
+
+	public Ejercito getEjercitoActual() {
+		return juego.getEjercitoActual();
 	}
 
 	public Juego getJuego() {

@@ -48,15 +48,27 @@ public class Generador {
 		if (casilla != null) {
 			Batallon batallon = (Batallon) casilla;
 			// TODO cambiar cuando el batallon tenga todos los valores para la ficha
-			String imagen = "";
-			fichaInfo = new FichaInfo("/Imagenes/ligera.png", -1, batallon.getId(), -1, -1, -1, -1,
-					batallon.getMaximoSoldados(), false, Color.RED, Color.GREEN);
+			String imagen = conseguirImagenBatallon(batallon);
+			fichaInfo = new FichaInfo(imagen, -1, batallon.getId(), -1, -1, -1, -1, batallon.getMaximoSoldados(), false,
+					Color.GREEN, Color.RED);
 			if (tablero.mitadTablero(coordenada)) {
 				fichaInfo.setColorArmy(Color.RED);
 				fichaInfo.setColorEnemy(Color.GREEN);
 			}
 		}
 		return fichaInfo;
+	}
+
+	private static String conseguirImagenBatallon(Batallon batallon) {
+		String[] imagenes = { "/Imagenes/infanteria.png", "/Imagenes/caballeria.png", "/Imagenes/arqueria.png" };
+		int i = 0;
+		for (Tipo tipo : Arrays.asList(Tipo.values())) {
+			if (tipo == batallon.getTipo()) {
+				return imagenes[i];
+			}
+			i++;
+		}
+		return null;
 	}
 
 	public static TableroUIInfo getTableroUIInfo(Juego juego) {

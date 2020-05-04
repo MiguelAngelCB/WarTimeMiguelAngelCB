@@ -1,4 +1,4 @@
-package pruebasui;
+package vista;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -7,18 +7,14 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import modelo.Batallon;
-import modelo.Coordenada;
 import modelo.Tablero;
-import modelo.Tipo;
-import vista.BordeArmada;
-import vista.TableroUI;
 import vista.info.TableroUIInfo;
 
-public class TableroUIPrueba extends JFrame {
+public class UserInterface extends JFrame {
 
-	private JPanel contentPane;
-	private TableroUI tableroUI;
+	protected JPanel contentPane;
+	protected TableroUI tableroUI;
+	protected BordeArmada bordeArmada;
 
 	/**
 	 * Launch the application.
@@ -27,7 +23,7 @@ public class TableroUIPrueba extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ParaUIPruebaTablero frame = new ParaUIPruebaTablero();
+					UserInterface frame = new UserInterface();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,7 +35,7 @@ public class TableroUIPrueba extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TableroUIPrueba() {
+	public UserInterface() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -48,16 +44,12 @@ public class TableroUIPrueba extends JFrame {
 		setContentPane(contentPane);
 
 		Tablero tablero = new Tablero(6, 12);
-		tablero.insertar(new Batallon(4, Tipo.infanteria), new Coordenada(4, 4));
 		TableroUIInfo tableroUIInfo = new TableroUIInfo(tablero);
 		tableroUI = new TableroUI(6, 12);
+		bordeArmada = new BordeArmada();
 		contentPane.add(tableroUI, BorderLayout.CENTER);
 		setExtendedState(getExtendedState() | JFrame.MAXIMIZED_BOTH);
-		contentPane.add(new BordeArmada(), BorderLayout.WEST);
-	}
-
-	public TableroUI getTableroUI() {
-		return tableroUI;
+		contentPane.add(bordeArmada, BorderLayout.WEST);
 	}
 
 }
