@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import vista.Conversores.Generador;
 import vista.info.EspecificacionSoldadosInfo;
 import vista.info.MercadoSoldadoInfo;
+import java.awt.Font;
 
 public class MercadoSoldados extends JPanel {
 
@@ -36,27 +37,33 @@ public class MercadoSoldados extends JPanel {
 		especialidades = Generador.getEspecialidades(info.getTipo(),miFocusAdapter);
 
 		JLabel lblBatallonNumero = new JLabel("Batallon numero ");
+		lblBatallonNumero.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		int height2 = 16;
 		lblBatallonNumero.setBounds(62, 51, 165, height2);
 		add(lblBatallonNumero);
 
 		lblBatallonId = new JLabel(String.valueOf(info.getId()));
+		lblBatallonId.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblBatallonId.setBounds(256, 51, 56, height2);
 		add(lblBatallonId);
 
 		JLabel lblMax = new JLabel("max.");
+		lblMax.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblMax.setBounds(395, 51, 56, height2);
 		add(lblMax);
 
 		lblMaxSoldados = new JLabel(String.valueOf(info.getMaximoSoldados()));
+		lblMaxSoldados.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblMaxSoldados.setBounds(482, 51, 56, height2);
 		add(lblMaxSoldados);
 
 		JLabel lblTipo = new JLabel("Tipo");
+		lblTipo.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblTipo.setBounds(62, 135, 56, height2);
 		add(lblTipo);
 
 		lblTipoSoldado = new JLabel(String.valueOf(info.getTipo()));
+		lblTipoSoldado.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblTipoSoldado.setBounds(171, 135, 56, height2);
 		add(lblTipoSoldado);
 		int y = 223;
@@ -66,11 +73,13 @@ public class MercadoSoldados extends JPanel {
 			y += height2 + 5;
 		}
 		JLabel lblTotalf = new JLabel("Total");
-		lblTotalf.setBounds(62, 390, 56, height2);
+		lblTotalf.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblTotalf.setBounds(62, 346, 56, height2);
 		add(lblTotalf);
 
 		lblTotal = new JLabel(String.valueOf(sumaSoldados()));
-		lblTotal.setBounds(245, 390, 56, height2);
+		lblTotal.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblTotal.setBounds(199, 346, 56, height2);
 		add(lblTotal);
 
 	}
@@ -97,7 +106,7 @@ public class MercadoSoldados extends JPanel {
 		return lblTipoSoldado;
 	}
 
-	public LinkedList<EspecificacionSoldadosInfo> getListaEjercito() {
+	public LinkedList<EspecificacionSoldadosInfo> getEspecificaciones() {
 		LinkedList<EspecificacionSoldadosInfo> response=new LinkedList<EspecificacionSoldadosInfo>();
 		for (EspecialidadSoldado especialidad : especialidades) {
 			response.add(new EspecificacionSoldadosInfo(especialidad.getLblEspecialidad().toString(),

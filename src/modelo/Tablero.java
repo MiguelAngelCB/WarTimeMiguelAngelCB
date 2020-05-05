@@ -1,6 +1,6 @@
 package modelo;
 
-import vista.info.FichaInfo;
+import vista.info.FichaBatallonInfo;
 
 public class Tablero {
 	private int ancho, alto;

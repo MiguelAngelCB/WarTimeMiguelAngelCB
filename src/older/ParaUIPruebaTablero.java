@@ -1,4 +1,4 @@
-package pruebasui;
+package older;
 
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -8,7 +8,6 @@ import java.awt.event.MouseEvent;
 import javax.swing.JPanel;
 
 import control.Juego;
-import control.LocalizadorController;
 import modelo.Coordenada;
 import utiles.Utiles;
 import vista.Advertencia;

@@ -1,4 +1,4 @@
-package pruebasui;
+package older;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -10,7 +10,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import control.PobladorController;
 import modelo.Ejercito;
 import vista.BordeArmada;
 import vista.MercadoSoldadoDialog;
@@ -70,7 +69,7 @@ public class BodeArmadaPrueba extends JFrame {
 //						MercadoSoldadoDialog dialogo=(MercadoSoldadoDialog)e.getSource();
 						if (mercadoSoldado.compruebaMax()) {
 							// aqui es donde hay que conectar con el modelo de datos
-							pobladorController.poblarBatallon(mercadoSoldado.getListaEjercito());
+							pobladorController.poblarBatallon(mercadoSoldado.getListaEspecificacion());
 						}
 						dispose();
 					}

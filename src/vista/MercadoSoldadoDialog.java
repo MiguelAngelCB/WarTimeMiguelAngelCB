@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 import javax.swing.JButton;
@@ -18,12 +19,10 @@ public class MercadoSoldadoDialog extends JDialog {
 
 	private  JPanel contentPanel =new JPanel();
 	private MercadoSoldados mercadoSoldados;
-	LinkedList<EspecificacionSoldadosInfo> listaEjercito;
-	public LinkedList<EspecificacionSoldadosInfo> getListaEjercito() {
-		return mercadoSoldados.getListaEjercito();
-	}
-
+	private ArrayList<EspecialidadSoldado> especialidades;
 	private JButton btnOk;
+	
+	
 	public MercadoSoldadoDialog(MercadoSoldadoInfo info) {
 		super();
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -45,6 +44,10 @@ public class MercadoSoldadoDialog extends JDialog {
 			}
 			
 		}
+	}
+
+	public LinkedList<EspecificacionSoldadosInfo> getListaEspecificacion() {
+		return mercadoSoldados.getEspecificaciones();
 	}
 
 	public JButton getBtnOk() {

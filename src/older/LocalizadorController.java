@@ -1,5 +1,6 @@
-package control;
+package older;
 
+import control.Juego;
 import modelo.Coordenada;
 import modelo.Error;
 

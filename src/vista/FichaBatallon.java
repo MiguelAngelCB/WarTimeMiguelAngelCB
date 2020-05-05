@@ -13,9 +13,9 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
-import vista.info.FichaInfo;
+import vista.info.FichaBatallonInfo;
 
-public class Ficha extends JPanel {
+public class FichaBatallon extends JPanel {
 	private JTextField txtColorEnemy;
 	private JTextField txtColorArmy;
 	private JLabel lblExperience;
@@ -29,7 +29,7 @@ public class Ficha extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public Ficha(FichaInfo information) {
+	public FichaBatallon(FichaBatallonInfo information) {
 		int mediaFont=14,bigFont=20;
 		int columns=3;
 		setBorder(new LineBorder(new Color(0, 0, 0), 3));
@@ -144,8 +144,8 @@ public class Ficha extends JPanel {
 		
 	}
 
-	private void paintValues(FichaInfo information) {
-		ImageIcon sonidoEncendido = new ImageIcon(Ficha.class.getResource(information.getIcon()));
+	private void paintValues(FichaBatallonInfo information) {
+		ImageIcon sonidoEncendido = new ImageIcon(FichaBatallon.class.getResource(information.getIcon()));
 		 ImageIcon sonidoEscalaOn = new ImageIcon(sonidoEncendido.getImage().getScaledInstance(100, 100,
 				Image.SCALE_SMOOTH));		 
 		 txtColorArmy.setBackground(information.getColorArmy());

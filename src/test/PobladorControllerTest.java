@@ -6,10 +6,10 @@ import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
-import control.PobladorController;
 import modelo.Batallon;
 import modelo.Especialidad;
 import modelo.Tipo;
+import older.PobladorController;
 import vista.info.EspecificacionSoldadosInfo;
 
 class PobladorControllerTest {

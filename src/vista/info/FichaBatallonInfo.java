@@ -2,7 +2,7 @@ package vista.info;
 
 import java.awt.Color;
 
-public class FichaInfo {
+public class FichaBatallonInfo {
 	private String icon;
 	private int army;
 	private int battalion;
@@ -15,7 +15,7 @@ public class FichaInfo {
 	private Color colorArmy;
 	private Color colorEnemy;
 	
-	public FichaInfo(String icon, int army, int battalion, int experience, int attack, int defence, int stamina,
+	public FichaBatallonInfo(String icon, int army, int battalion, int experience, int attack, int defence, int stamina,
 			int units, boolean heroe,Color colorArmy) {
 		super();
 		this.icon = icon;

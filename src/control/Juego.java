@@ -3,6 +3,7 @@ package control;
 import java.util.ArrayDeque;
 
 import modelo.Batallon;
+import modelo.Castillo;
 import modelo.Coordenada;
 import modelo.Ejercito;
 import modelo.Tablero;
@@ -26,8 +27,12 @@ public class Juego {
 		this.ancho = ancho;
 		this.alto = alto;
 		tablero = new Tablero(ancho, alto);
-		ejercitos.offer(new Ejercito(0));
-		ejercitos.offer(new Ejercito(1));
+		Ejercito ejercitoCero = new Ejercito(0);
+		tablero.insertar(new Castillo(ejercitoCero), new Coordenada(3, 1));
+		ejercitos.offer(ejercitoCero);
+		Ejercito ejercitoUno = new Ejercito(1);
+		tablero.insertar(new Castillo(ejercitoUno), new Coordenada(3, ancho-2));
+		ejercitos.offer(ejercitoUno);
 		primerEjercito = ejercitos.peek();
 	}
 
@@ -71,7 +76,7 @@ public class Juego {
 		}
 	}
 
-	private Ejercito getEjercitoActual() {
+	public Ejercito getEjercitoActual() {
 		return ejercitos.peek();
 	}
 
@@ -79,4 +84,16 @@ public class Juego {
 		// Demeter
 		getEjercitoActual().getBatallonActual().alistarSoldado(soldado);
 	}
+	public Batallon getBatallonActual() {
+		return getEjercitoActual().getBatallonActual();
+	}
+
+	public int getAncho() {
+		return ancho;
+	}
+
+	public int getAlto() {
+		return alto;
+	}
+	
 }

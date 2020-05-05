@@ -2,8 +2,11 @@ package control;
 
 import java.util.List;
 
+import modelo.Batallon;
 import modelo.Coordenada;
+import modelo.Ejercito;
 import modelo.Soldado;
+import modelo.Tablero;
 import vista.info.EspecificacionSoldadosInfo;
 
 public class ComenzarController {
@@ -19,9 +22,13 @@ public class ComenzarController {
 
 	}
 	
-	public ComenzarController(Juego juego) {
+	public boolean isLocalizarEstado() {
+		return juego.isLocalizarEstado();
+	}
+
+	public ComenzarController(int ancho,int alto) {
 		super();
-		this.juego = juego;
+		juego = new Juego(ancho, alto);
 	}
 
 	public boolean localizar(Coordenada coordenada) {
@@ -34,5 +41,22 @@ public class ComenzarController {
 	public Juego getJuego() {
 		return juego;
 	}
-	
+
+	public Ejercito getEjercitoActual() {
+		return juego.getEjercitoActual();
+	}
+
+	public Batallon getBatallonActual() {
+		return juego.getBatallonActual();
+	}
+
+	public Tablero getTablero() {
+		return juego.getTablero();
+	}
+	public int getAncho() {
+		return juego.getAncho();
+	}
+	public int getAlto() {
+		return juego.getAlto();
+	}
 }

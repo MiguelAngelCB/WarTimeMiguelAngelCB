@@ -6,10 +6,12 @@ import java.awt.event.MouseAdapter;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import modelo.Castillo;
 import modelo.Coordenada;
 import modelo.Tablero;
 import utiles.Utiles;
-import vista.info.FichaInfo;
+import vista.info.FichaBatallonInfo;
+import vista.info.FichaCastilloInfo;
 import vista.info.TableroUIInfo;
 
 public class TableroUI extends JPanel {
@@ -29,12 +31,12 @@ public class TableroUI extends JPanel {
 	}
 
 	public void setMouseAdapter(MouseAdapter mouseAdapter) {
-		this.mouseAdapter = mouseAdapter;	
+		this.mouseAdapter = mouseAdapter;
 	}
 
 	public void actualizarTablero(TableroUIInfo tableroUIInfo) {
 		removeAll();
-		FichaInfo[][] fichasInfo = tableroUIInfo.getFichasInfo();
+		FichaBatallonInfo[][] fichasInfo = tableroUIInfo.getFichasInfo();
 		for (int i = 0; i < fichas.length; i++) {
 			for (int j = 0; j < fichas[i].length; j++) {
 				fichas[i][j] = getFicha(fichasInfo[i][j]);
@@ -45,11 +47,30 @@ public class TableroUI extends JPanel {
 		}
 		revalidate();
 	}
-	
-	public  JPanel getFicha(FichaInfo fichaInfo) {
-		if(fichaInfo==null) {
+
+	public JPanel getFicha(FichaBatallonInfo fichaBatallonInfo) {
+		if (fichaBatallonInfo == null) {
 			return new FichaBlanca();
 		}
-		return new Ficha(fichaInfo);
+		return new FichaBatallon(fichaBatallonInfo);
+	}
+
+	public JPanel getFicha(FichaCastilloInfo fichasCastilloInfo) {
+		switch (key) {
+		case null:
+			
+			break;
+		case fichaCastillo instanceof CastilloInfo.class:
+			
+			break;
+		case null:
+		case FichaBatallon instanceof BatallonInfo.class:
+			
+			break;
+		}
+		if(fichasCastilloInfo==null) {
+			return new FichaBlanca();
+		}
+		return new FichaCastillo(fichasCastilloInfo);
 	}
 }
