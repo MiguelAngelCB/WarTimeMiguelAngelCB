@@ -22,6 +22,7 @@ import vista.FichaBlanca;
 import vista.info.EjercitoInfo;
 import vista.info.EspecialidadSoldadoInfo;
 import vista.info.FichaBatallonInfo;
+import vista.info.FichaBlancaInfo;
 import vista.info.FichaCastilloInfo;
 import vista.info.FichaInfo;
 import vista.info.MercadoSoldadoInfo;
@@ -50,12 +51,8 @@ public class Generador {
 	}
 
 	public static FichaInfo getFichaInfo(Juego juego, Coordenada coordenada) {
-		Casilla casilla = juego.getTablero().getCasilla(coordenada);
-		FichaInfo fichaInfo = null;
-		if (casilla != null) {
-			fichaInfo=casilla.getInfo(juego.getEjercitoActual());
-		}
-		return fichaInfo;
+		Casilla casilla = juego.getCasilla(coordenada);
+		return casilla.getInfo(juego.getEjercitoActual());
 	}
 
 	public static TableroUIInfo getTableroUIInfo(Juego juego) {

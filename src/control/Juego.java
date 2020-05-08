@@ -3,10 +3,13 @@ package control;
 import java.util.ArrayDeque;
 
 import modelo.Batallon;
+import modelo.Blanca;
+import modelo.Casilla;
 import modelo.Castillo;
 import modelo.Coordenada;
 import modelo.Ejercito;
 import modelo.Tablero;
+import vista.info.FichaInfo;
 import modelo.Error;
 import modelo.Soldado;
 
@@ -94,6 +97,14 @@ public class Juego {
 
 	public int getAlto() {
 		return alto;
+	}
+
+	public Casilla getCasilla(Coordenada coordenada) {
+		Casilla casilla = tablero.getCasilla(coordenada);
+		if(casilla==null) {
+			return new Blanca();
+		}
+		return casilla;
 	}
 	
 }

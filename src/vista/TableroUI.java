@@ -51,16 +51,6 @@ public class TableroUI extends JPanel {
 	}
 
 	public JPanel getFicha(FichaInfo fichaInfo) {
-		if (fichaInfo instanceof FichaBatallonInfo) {
-			FichaBatallonInfo fichaBatallonInfo = (FichaBatallonInfo) fichaInfo;
-			return new FichaBatallon(fichaBatallonInfo);
-		} else if (fichaInfo instanceof FichaCastilloInfo) {
-			FichaCastilloInfo fichaCastilloInfo = (FichaCastilloInfo) fichaInfo;
-			return new FichaCastillo(fichaCastilloInfo);
-		} else if (fichaInfo instanceof FichaTrincheraInfo) {
-			FichaTrincheraInfo fichaTrincheraInfo = (FichaTrincheraInfo) fichaInfo;
-			return new FichaTrinchera(fichaTrincheraInfo);
-		}
-		return new FichaBlanca();
+		return fichaInfo.getPanel();
 	}
 }

@@ -1,5 +1,7 @@
 package vista.info;
 
-public interface FichaInfo {
+import javax.swing.JPanel;
 
+public interface FichaInfo {
+	JPanel getPanel();
 }
