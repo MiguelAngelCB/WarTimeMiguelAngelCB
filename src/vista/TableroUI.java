@@ -12,6 +12,7 @@ import modelo.Tablero;
 import utiles.Utiles;
 import vista.info.FichaBatallonInfo;
 import vista.info.FichaCastilloInfo;
+import vista.info.FichaInfo;
 import vista.info.TableroUIInfo;
 
 public class TableroUI extends JPanel {
@@ -36,7 +37,7 @@ public class TableroUI extends JPanel {
 
 	public void actualizarTablero(TableroUIInfo tableroUIInfo) {
 		removeAll();
-		FichaBatallonInfo[][] fichasInfo = tableroUIInfo.getFichasInfo();
+		FichaInfo[][] fichasInfo = tableroUIInfo.getFichasInfo();
 		for (int i = 0; i < fichas.length; i++) {
 			for (int j = 0; j < fichas[i].length; j++) {
 				fichas[i][j] = getFicha(fichasInfo[i][j]);
@@ -48,17 +49,14 @@ public class TableroUI extends JPanel {
 		revalidate();
 	}
 
-	public JPanel getFicha(FichaBatallonInfo fichaBatallonInfo) {
-		if (fichaBatallonInfo == null) {
-			return new FichaBlanca();
+	public JPanel getFicha(FichaInfo fichaInfo) {
+		if (fichaInfo instanceof FichaBatallonInfo) {
+			FichaBatallonInfo fichaBatallonInfo=(FichaBatallonInfo)fichaInfo;
+			return new FichaBatallon(fichaBatallonInfo);
+		}else if (fichaInfo instanceof FichaCastilloInfo) {
+			FichaCastilloInfo fichaCastilloInfo=(FichaCastilloInfo)fichaInfo;
+			return new FichaCastillo(fichaCastilloInfo);
 		}
-		return new FichaBatallon(fichaBatallonInfo);
-	}
-
-	public JPanel getFicha(FichaCastilloInfo fichasCastilloInfo) {
-		if (fichasCastilloInfo == null) {
-			return new FichaBlanca();
-		}
-		return new FichaCastillo(fichasCastilloInfo);
+		return new FichaBlanca();
 	}
 }
