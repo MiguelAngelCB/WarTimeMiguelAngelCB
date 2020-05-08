@@ -56,19 +56,7 @@ public class TableroUI extends JPanel {
 	}
 
 	public JPanel getFicha(FichaCastilloInfo fichasCastilloInfo) {
-		switch (key) {
-		case null:
-			
-			break;
-		case fichaCastillo instanceof CastilloInfo.class:
-			
-			break;
-		case null:
-		case FichaBatallon instanceof BatallonInfo.class:
-			
-			break;
-		}
-		if(fichasCastilloInfo==null) {
+		if (fichasCastilloInfo == null) {
 			return new FichaBlanca();
 		}
 		return new FichaCastillo(fichasCastilloInfo);

@@ -1,6 +1,6 @@
 package vista.info;
 
-public class FichaCastilloInfo {
+public class FichaCastilloInfo implements FichaInfo{
 	private int idEjercito;
 
 	public FichaCastilloInfo(int idEjercito) {

@@ -2,7 +2,7 @@ package vista.info;
 
 import java.awt.Color;
 
-public class FichaBatallonInfo {
+public class FichaBatallonInfo implements FichaInfo{
 	private String icon;
 	private int army;
 	private int battalion;
