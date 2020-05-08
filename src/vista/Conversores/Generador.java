@@ -49,23 +49,16 @@ public class Generador {
 				ejercito.getInfanteria(), ejercito.getCaballeria(), ejercito.getArqueria());
 	}
 
-	public static FichaInfo getFichaInfo(Tablero tablero, Coordenada coordenada) {
-		Casilla casilla = tablero.getCasilla(coordenada);
+	public static FichaInfo getFichaInfo(Juego juego, Coordenada coordenada) {
+		Casilla casilla = juego.getTablero().getCasilla(coordenada);
 		FichaInfo fichaInfo = null;
 		if (casilla != null) {
-			if (casilla instanceof Batallon) {
-				Batallon batallon = (Batallon) casilla;
-				fichaInfo = new FichaBatallonInfo("/Imagenes/ligera.png", -1, batallon.getId(), -1, -1, -1, -1,
-						batallon.getMaximoSoldados(), false, Color.BLACK);
-			} else {
-				Castillo castillo = (Castillo) casilla;
-				fichaInfo = new FichaCastilloInfo(castillo.getEjercito().getId());
-			}
+			fichaInfo=casilla.getInfo(juego.getEjercitoActual());
 		}
 		return fichaInfo;
 	}
 
 	public static TableroUIInfo getTableroUIInfo(Juego juego) {
-		return new TableroUIInfo(juego.getTablero());
+		return new TableroUIInfo(juego);
 	}
 }

@@ -3,6 +3,9 @@ package modelo;
 import java.awt.Color;
 import java.util.LinkedList;
 
+import vista.info.FichaBatallonInfo;
+import vista.info.FichaInfo;
+
 public class Batallon implements Casilla{
 	private int id;
 	private final int maximoSoldados = 10;
@@ -51,6 +54,12 @@ public class Batallon implements Casilla{
 //			response = soldados.add(soldado);
 //		}
 //		return response;
+	}
+
+
+	@Override
+	public FichaInfo getInfo(Ejercito ejercito) {
+		return new FichaBatallonInfo(ejercito.getIcon(), ejercito.getId(),getId(),0,0,0,0,0,false,ejercito.getColor());		
 	}
 
 }

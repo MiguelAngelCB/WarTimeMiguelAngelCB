@@ -1,5 +1,8 @@
 package modelo;
 
-public interface Casilla {
+import vista.info.FichaInfo;
 
+public interface Casilla {
+	//lo abstracto
+	public FichaInfo getInfo(Ejercito ejercito);
 }

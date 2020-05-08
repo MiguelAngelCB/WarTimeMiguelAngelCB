@@ -40,7 +40,7 @@ public class UserInterface extends JFrame {
 		setExtendedState(getExtendedState() | JFrame.MAXIMIZED_BOTH);
 	}
 	public void crearTablero(ComenzarController comenzarController) {
-		TableroUIInfo tableroUIInfo=new TableroUIInfo(comenzarController.getTablero());
+		TableroUIInfo tableroUIInfo=new TableroUIInfo(comenzarController.getJuego());
 		tableroUI = new TableroUI(comenzarController.getAncho(), comenzarController.getAlto());
 		contentPane.add(tableroUI, BorderLayout.CENTER);
 	}

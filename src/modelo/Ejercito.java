@@ -1,5 +1,6 @@
 package modelo;
 
+import java.awt.Color;
 import java.util.LinkedList;
 
 public class Ejercito {
@@ -68,5 +69,15 @@ public class Ejercito {
 
 	public int getIdBatallonActual() {
 		return getBatallonActual().getId();
+	}
+
+	public String getIcon() {
+		// TODO Auto-generated method stub
+		return " ";
+	}
+
+	public Color getColor() {
+		// TODO Auto-generated method stub
+		return Color.black;
 	}
 }
