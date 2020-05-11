@@ -93,7 +93,7 @@ public class FichaBatallonInfo implements FichaInfo{
 
 	@Override
 	public JPanel getPanel() {
-		return new FichaBatallon(this);
+		return new FichaBatallon(icon,army,battalion,colorArmy);
 	}
 	
 	

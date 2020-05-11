@@ -29,7 +29,7 @@ public class FichaBatallon extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public FichaBatallon(FichaBatallonInfo information) {
+	public FichaBatallon(String icon, int army, int battalion,Color color) {
 		int mediaFont=14,bigFont=20;
 		int columns=3;
 		setBorder(new LineBorder(new Color(0, 0, 0), 3));
@@ -140,22 +140,22 @@ public class FichaBatallon extends JPanel {
 		lblIcono.setHorizontalTextPosition(SwingConstants.CENTER);
 		info.add(lblIcono, BorderLayout.CENTER);
 		
-		paintValues(information);		 
+		paintValues(icon,army,battalion,color);		 
 		
 	}
 
-	private void paintValues(FichaBatallonInfo information) {
-		ImageIcon sonidoEncendido = new ImageIcon(FichaBatallon.class.getResource(information.getIcon()));
+	private void paintValues(String icon, int army, int battalion,Color color) {
+		ImageIcon sonidoEncendido = new ImageIcon(FichaBatallon.class.getResource(icon));
 		 ImageIcon sonidoEscalaOn = new ImageIcon(sonidoEncendido.getImage().getScaledInstance(100, 100,
 				Image.SCALE_SMOOTH));		 
-		 txtColorArmy.setBackground(information.getColorArmy());
-		 txtColorEnemy.setBackground(information.getColorEnemy());
-		 lblAttack.setText(String.valueOf(information.getAttack()));
-		 lblDefence.setText(String.valueOf(information.getDefence()));
-		 lblExperience.setText(String.valueOf(information.getExperience()));
-		 lblHeroe.setText(Character.toString(information.getHeroe()));
-		 lblStamina.setText(String.valueOf(information.getStamina()));
-		 lblUnits.setText(String.valueOf(information.getUnits()));
+		 txtColorArmy.setBackground(color);
+		 txtColorEnemy.setBackground(color);
+//		 lblAttack.setText(String.valueOf(information.getAttack()));
+//		 lblDefence.setText(String.valueOf(information.getDefence()));
+//		 lblExperience.setText(String.valueOf(information.getExperience()));
+//		 lblHeroe.setText(Character.toString(information.getHeroe()));
+//		 lblStamina.setText(String.valueOf(information.getStamina()));
+//		 lblUnits.setText(String.valueOf(information.getUnits()));
 		 lblIcono.setIcon(sonidoEscalaOn);		
 	}
 

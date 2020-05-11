@@ -50,12 +50,6 @@ public class Generador {
 				ejercito.getInfanteria(), ejercito.getCaballeria(), ejercito.getArqueria());
 	}
 
-	public static FichaInfo getFichaInfo(Juego juego, Coordenada coordenada) {
-		Casilla casilla = juego.getCasilla(coordenada);
-		return casilla.getInfo(juego.getEjercitoActual());
-	}
-
-	public static TableroUIInfo getTableroUIInfo(Juego juego) {
-		return new TableroUIInfo(juego);
-	}
+	
+	
 }

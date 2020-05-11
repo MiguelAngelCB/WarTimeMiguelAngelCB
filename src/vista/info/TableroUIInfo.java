@@ -1,8 +1,8 @@
 package vista.info;
 
 import control.Juego;
+import modelo.Casilla;
 import modelo.Coordenada;
-import modelo.Tablero;
 import vista.Conversores.Generador;
 
 public class TableroUIInfo {
@@ -21,10 +21,14 @@ public class TableroUIInfo {
 		FichaInfo[][] fichasInfo=new FichaInfo[juego.getAlto()][juego.getAncho()];
 		for (int i = 0; i < fichasInfo.length; i++) {
 			for (int j = 0; j < fichasInfo[i].length; j++) {
-				fichasInfo[i][j]=Generador.getFichaInfo(juego, new Coordenada(i, j));
+				fichasInfo[i][j]=getFichaInfo(juego, new Coordenada(i, j));
 			}
 		}
 		return fichasInfo;
+	}
+	public FichaInfo getFichaInfo(Juego juego, Coordenada coordenada) {
+		Casilla casilla = juego.getCasilla(coordenada);
+		return casilla.getInfo(juego.getEjercitoActual());
 	}
 
 }
