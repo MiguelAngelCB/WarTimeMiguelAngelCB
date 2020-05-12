@@ -13,8 +13,6 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
-import vista.info.FichaBatallonInfo;
-
 public class FichaBatallon extends JPanel {
 	private JTextField txtColorEnemy;
 	private JTextField txtColorArmy;
