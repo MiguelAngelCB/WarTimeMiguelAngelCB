@@ -2,8 +2,6 @@ package control;
 
 import java.awt.EventQueue;
 
-import vista.UserInterface;
-
 public class Principal {
 	/**
 	 * Launch the application.

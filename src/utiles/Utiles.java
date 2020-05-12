@@ -15,4 +15,8 @@ public class Utiles {
 		return new Coordenada(Integer.valueOf(split[0]), Integer.valueOf(split[1]));
 	}
 
+	public static int getAleatorioSesgado(int min,int max,int porcentajeSesgo) {
+		assert max>min&& min>=0;
+		return (int)((Math.random()*((max+1)-min))+min);
+	}
 }

@@ -3,6 +3,7 @@ package modelo;
 import java.awt.Color;
 import java.util.LinkedList;
 
+import vista.info.FichaBatallonFactory;
 import vista.info.FichaBatallonInfo;
 import vista.info.FichaInfo;
 
@@ -59,7 +60,7 @@ public class Batallon implements Casilla{
 
 	@Override
 	public FichaInfo getInfo(Ejercito ejercito) {
-		return new FichaBatallonInfo(ejercito.getIcon(), ejercito.getId(),getId(),0,0,0,0,0,false,ejercito.getColor());		
+		return new FichaBatallonFactory(new FichaBatallonInfo(ejercito.getIcon(), ejercito.getId(),getId(),0,0,0,0,0,false,ejercito.getColor()));		
 	}
 
 }

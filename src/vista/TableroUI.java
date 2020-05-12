@@ -6,14 +6,8 @@ import java.awt.event.MouseAdapter;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import modelo.Castillo;
-import modelo.Coordenada;
-import modelo.Tablero;
 import utiles.Utiles;
-import vista.info.FichaBatallonInfo;
-import vista.info.FichaCastilloInfo;
 import vista.info.FichaInfo;
-import vista.info.FichaTrincheraInfo;
 import vista.info.TableroUIInfo;
 
 public class TableroUI extends JPanel {

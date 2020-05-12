@@ -7,10 +7,18 @@ import vista.info.FichaInfo;
 import vista.info.Info;
 
 public class FichaCastilloFactory implements FichaInfo{
+	private FichaCastilloInfo fichaCastilloInfo;
+	
+	
+	public FichaCastilloFactory(FichaCastilloInfo fichaCastilloInfo) {
+		super();
+		this.fichaCastilloInfo = fichaCastilloInfo;
+	}
+
 
 	@Override
-	public JPanel getPanel(Info Info) {
-		return new FichaCastillo((FichaCastilloInfo)Info);
+	public JPanel getPanel() {
+		return new FichaCastillo(fichaCastilloInfo);
 	}
 
 }

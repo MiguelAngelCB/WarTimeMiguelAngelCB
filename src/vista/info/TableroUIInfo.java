@@ -3,7 +3,6 @@ package vista.info;
 import control.Juego;
 import modelo.Casilla;
 import modelo.Coordenada;
-import vista.Conversores.Generador;
 
 public class TableroUIInfo {
 
