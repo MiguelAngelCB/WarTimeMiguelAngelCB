@@ -41,4 +41,8 @@ public class Tablero {
 		int positionRelativa = y - (mitad * ejercito.getId());
 		return positionRelativa >= 0 && positionRelativa < mitad + ejercito.getId();
 	}
+
+	public boolean borrar(Casilla casilla) {
+		return casillas.borrar(casilla);
+	}
 }

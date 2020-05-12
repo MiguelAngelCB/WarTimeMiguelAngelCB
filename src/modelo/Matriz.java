@@ -43,6 +43,11 @@ public class Matriz<K, E> {
 	public boolean contieneClave(K k) {
 		return getElement(k)!=null;
 	}
+
+	public boolean borrar(E casilla) {
+		E remove = elements.remove(reverse.remove(casilla));
+		return remove!=null;
+	}
 	
 
 }
