@@ -1,32 +1,17 @@
 package vista.Conversores;
 
-import java.awt.Color;
 import java.awt.event.FocusAdapter;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import javax.swing.JPanel;
-
-import control.Juego;
 import modelo.Batallon;
-import modelo.Casilla;
-import modelo.Castillo;
-import modelo.Coordenada;
 import modelo.Ejercito;
 import modelo.Especialidad;
-import modelo.Tablero;
 import modelo.Tipo;
 import vista.EspecialidadSoldado;
-import vista.FichaBatallon;
-import vista.FichaBlanca;
 import vista.info.EjercitoInfo;
 import vista.info.EspecialidadSoldadoInfo;
-import vista.info.FichaBatallonInfo;
-import vista.info.FichaBlancaInfo;
-import vista.info.FichaCastilloInfo;
-import vista.info.FichaInfo;
 import vista.info.MercadoSoldadoInfo;
-import vista.info.TableroUIInfo;
 
 public class Generador {
 

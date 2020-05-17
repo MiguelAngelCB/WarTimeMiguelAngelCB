@@ -1,8 +1,7 @@
 package modelo;
 
-import vista.FichaCastilloFactory;
-import vista.info.FichaCastilloInfo;
-import vista.info.FichaInfo;
+import vista.info.CastilloFichaFactory;
+import vista.info.FichaFactory;
 
 public class Castillo implements Casilla {
 	private Ejercito ejercito;
@@ -16,8 +15,8 @@ public class Castillo implements Casilla {
 	}
 
 	@Override
-	public FichaInfo getInfo(Ejercito ejercito) {
-		return new FichaCastilloFactory(new FichaCastilloInfo(ejercito.getId()));
+	public FichaFactory getFactory(Ejercito ejercito) {
+		return new CastilloFichaFactory(ejercito);
 	}
 
 }

@@ -1,13 +1,13 @@
 package modelo;
 
-import vista.info.FichaBlancaFactory;
-import vista.info.FichaInfo;
+import vista.info.BlancaFichaFactory;
+import vista.info.FichaFactory;
 
 public class Blanca implements Casilla {
-
+	
 	@Override
-	public FichaInfo getInfo(Ejercito ejercito) {
-		return new FichaBlancaFactory();
+	public FichaFactory getFactory(Ejercito ejercito) {
+		return new BlancaFichaFactory();
 	}
 
 }

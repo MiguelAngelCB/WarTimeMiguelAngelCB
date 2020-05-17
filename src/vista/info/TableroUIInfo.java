@@ -16,8 +16,8 @@ public class TableroUIInfo {
 	}
 
 
-	public FichaInfo[][] getFichasInfo(){
-		FichaInfo[][] fichasInfo=new FichaInfo[juego.getAlto()][juego.getAncho()];
+	public FichaFactory[][] getFichasInfo(){
+		FichaFactory[][] fichasInfo=new FichaFactory[juego.getAlto()][juego.getAncho()];
 		for (int i = 0; i < fichasInfo.length; i++) {
 			for (int j = 0; j < fichasInfo[i].length; j++) {
 				fichasInfo[i][j]=getFichaInfo(juego, new Coordenada(i, j));
@@ -25,9 +25,9 @@ public class TableroUIInfo {
 		}
 		return fichasInfo;
 	}
-	public FichaInfo getFichaInfo(Juego juego, Coordenada coordenada) {
+	public FichaFactory getFichaInfo(Juego juego, Coordenada coordenada) {
 		Casilla casilla = juego.getCasilla(coordenada);
-		return casilla.getInfo(juego.getEjercitoActual());
+		return casilla.getFactory(juego.getEjercitoActual());
 	}
 
 }

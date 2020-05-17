@@ -1,7 +1,5 @@
 package modelo;
 
-import vista.info.FichaBatallonInfo;
-
 public class Tablero {
 	private int ancho, alto;
 	// Como tambien puede ser un castillo, habrá que remodelar esto
@@ -44,5 +42,9 @@ public class Tablero {
 
 	public boolean borrar(Casilla casilla) {
 		return casillas.borrar(casilla);
+	}
+
+	public void liberar(Coordenada coordenadaBatallon) {
+		casillas.liberateElement(coordenadaBatallon);
 	}
 }

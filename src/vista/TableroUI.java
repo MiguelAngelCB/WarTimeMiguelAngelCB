@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import utiles.Utiles;
-import vista.info.FichaInfo;
+import vista.info.FichaFactory;
 import vista.info.TableroUIInfo;
 
 public class TableroUI extends JPanel {
@@ -32,7 +32,7 @@ public class TableroUI extends JPanel {
 
 	public void actualizarTablero(TableroUIInfo tableroUIInfo) {
 		removeAll();
-		FichaInfo[][] fichasInfo = tableroUIInfo.getFichasInfo();
+		FichaFactory[][] fichasInfo = tableroUIInfo.getFichasInfo();
 		for (int i = 0; i < fichas.length; i++) {
 			for (int j = 0; j < fichas[i].length; j++) {
 				fichas[i][j] = getFicha(fichasInfo[i][j]);
@@ -44,7 +44,7 @@ public class TableroUI extends JPanel {
 		revalidate();
 	}
 
-	public JPanel getFicha(FichaInfo fichaInfo) {
+	public JPanel getFicha(FichaFactory fichaInfo) {
 		return fichaInfo.getPanel();
 	}
 }
