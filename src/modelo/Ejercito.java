@@ -12,10 +12,9 @@ public class Ejercito {
 	private Batallon primerBatallon;
 	// Aunque tiene caracteristicas de SET (los batallones no se repiten)
 	// me conviene una list porque puedo hacer get(i)
-	//Esta implementacion me permite usar la coleccion como lista o cola
+	// Esta implementacion me permite usar la coleccion como lista o cola
 	LinkedList<Batallon> batallones = new LinkedList<Batallon>();
-	
-	
+
 	public Ejercito(int id) {
 		super();
 		this.id = id;
@@ -28,18 +27,22 @@ public class Ejercito {
 	}
 
 	private void crearEjercito() {
-		int j=0;
+		int j = 0;
 		for (int i = 0; i < infanteria; i++) {
-			batallones.offer(new Batallon(j++,Tipo.infanteria));
+			batallones.offer(new Batallon(j++, Tipo.infanteria));
 		}
 		for (int i = 0; i < caballeria; i++) {
-			batallones.offer(new Batallon(j++,Tipo.caballeria));
+			batallones.offer(new Batallon(j++, Tipo.caballeria));
 
 		}
 		for (int i = 0; i < arqueria; i++) {
-			batallones.offer(new Batallon(j++,Tipo.arqueria));
+			batallones.offer(new Batallon(j++, Tipo.arqueria));
 		}
-		this.primerBatallon=batallones.peek();
+		this.primerBatallon = batallones.peek();
+	}
+
+	public boolean containsBatallon(Casilla casilla) {
+		return batallones.contains(casilla);
 	}
 
 	public int getId() {
@@ -61,7 +64,6 @@ public class Ejercito {
 	public Tipo getTipoBatallon() {
 		return getBatallonActual().getTipo();
 	}
-
 
 	public Batallon getBatallonActual() {
 		return batallones.get(idBatallonActual);

@@ -41,15 +41,15 @@ public class Juego {
 	}
 
 	public void turnoJugador(Coordenada coordenadaBatallon, Coordenada coordenada2) {
-		if (getCasilla(coordenadaBatallon) instanceof Batallon) {
-			enfrentarBatallon(coordenadaBatallon, coordenada2);
+		if (getEjercitoActual().containsBatallon(getCasilla(coordenadaBatallon))) {
+			Batallon batallonJugador = (Batallon) getCasilla(coordenadaBatallon);
+			enfrentarBatallon(batallonJugador, coordenada2);
 			moverBatallon(coordenadaBatallon, coordenada2);
 		}
 	}
 
-	public void enfrentarBatallon(Coordenada coordenadaBatallon, Coordenada coordenadaEnemigo) {
-		if (getCasilla(coordenadaEnemigo) instanceof Batallon) {
-			Batallon batallonJugador = (Batallon) getCasilla(coordenadaBatallon);
+	public void enfrentarBatallon(Batallon batallonJugador, Coordenada coordenadaEnemigo) {
+		if (!getEjercitoActual().containsBatallon(getCasilla(coordenadaEnemigo))) {
 			Batallon batallonEnemigo = (Batallon) getCasilla(coordenadaEnemigo);
 			Ataque ataque = new Ataque(batallonJugador, batallonEnemigo);
 			ataque.combatir();
